@@ -1,0 +1,8 @@
+server:
+  port: 8093
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://ankushpaul199:8EHD98gyNA3uMANw@cluster0.3mmez.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: microservice
