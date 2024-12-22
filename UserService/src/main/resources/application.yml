@@ -2,6 +2,30 @@ server:
   port: 8091
 
 spring:
+  cloud:
+    discovery:
+      enabled: true
+    openfeign:
+      client:
+        config:
+          # Default Feign client configuration
+          default:
+            connectTimeout: 1000  # Connection timeout in milliseconds
+            readTimeout: 5000     # Read timeout in milliseconds
+            loggerLevel: full     # Full logging level for Feign requests
+
+          # Specific Feign client configuration for UserService
+          RATINGSERVICE:
+            connectTimeout: 2000
+            readTimeout: 5000
+            loggerLevel: BASIC
+
+          # Specific Feign client configuration for HotelService
+          HOTELSERVICE:
+            connectTimeout: 3000
+            readTimeout: 6000
+            loggerLevel: basic
+
   application:
     name: UserService
   main:
