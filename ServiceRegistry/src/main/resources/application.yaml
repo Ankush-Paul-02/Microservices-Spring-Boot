@@ -1,0 +1,11 @@
+server:
+  port: 8094
+spring:
+  application:
+    name: ServiceRegistry
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false

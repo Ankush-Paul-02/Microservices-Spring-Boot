@@ -2,7 +2,17 @@ server:
   port: 8093
 
 spring:
+  application:
+    name: RATINGSERVICE
   data:
     mongodb:
       uri: mongodb+srv://ankushpaul199:8EHD98gyNA3uMANw@cluster0.3mmez.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: microservice
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8094/eureka

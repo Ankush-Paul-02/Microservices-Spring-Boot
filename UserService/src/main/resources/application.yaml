@@ -17,3 +17,11 @@ spring:
     show-sql: false
     database: MYSQL
     database-platform: org.hibernate.dialect.MySQLDialect
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8094/eureka
