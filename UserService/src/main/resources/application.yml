@@ -27,7 +27,7 @@ spring:
             loggerLevel: basic
 
   application:
-    name: UserService
+    name: USERSERVICE
   main:
     banner-mode: off
   datasource:
@@ -48,4 +48,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8094/eureka
+      defaultZone: http://localhost:8761/eureka
