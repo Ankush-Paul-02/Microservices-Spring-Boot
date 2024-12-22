@@ -11,5 +11,5 @@ public interface HotelService {
 
     List<HotelDto> getAllHotels();
 
-    HotelDto getHotelByName(String name);
+    HotelDto getHotelById(Long id);
 }

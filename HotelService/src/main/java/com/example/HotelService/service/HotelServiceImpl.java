@@ -34,6 +34,7 @@ public class HotelServiceImpl implements HotelService {
     public List<HotelDto> getAllHotels() {
         List<Hotel> all = hotelRepository.findAll();
         return all.stream().map(hotel -> HotelDto.builder()
+                .id(hotel.getId())
                 .name(hotel.getName())
                 .about(hotel.getAbout())
                 .location(hotel.getLocation())
@@ -41,13 +42,14 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public HotelDto getHotelByName(String name) {
-        Optional<Hotel> optionalHotel = hotelRepository.findHotelByName(name);
+    public HotelDto getHotelById(Long id) {
+        Optional<Hotel> optionalHotel = hotelRepository.findById(id);
         if (optionalHotel.isEmpty()) {
             throw new RuntimeException("Hotel is not present");
         }
         Hotel hotel = optionalHotel.get();
         return HotelDto.builder()
+                .id(hotel.getId())
                 .name(hotel.getName())
                 .about(hotel.getAbout())
                 .location(hotel.getLocation())

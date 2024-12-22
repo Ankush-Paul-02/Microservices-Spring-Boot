@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Builder
@@ -20,4 +23,7 @@ public class User {
     private String name;
     private String email;
     private String skill;
+
+    @Transient
+    private List<Rating> rating = new ArrayList<>();
 }
