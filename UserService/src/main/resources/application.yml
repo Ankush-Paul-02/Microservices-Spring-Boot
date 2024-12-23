@@ -2,6 +2,10 @@ server:
   port: 8091
 
 spring:
+  application:
+    name: USERSERVICE
+  config:
+    import: optional:configserver:http://localhost:8095
   cloud:
     discovery:
       enabled: true
@@ -26,8 +30,6 @@ spring:
             readTimeout: 6000
             loggerLevel: basic
 
-  application:
-    name: USERSERVICE
   main:
     banner-mode: off
   datasource:
@@ -41,11 +43,3 @@ spring:
     show-sql: false
     database: MYSQL
     database-platform: org.hibernate.dialect.MySQLDialect
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka

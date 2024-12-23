@@ -1,0 +1,13 @@
+server:
+  port: 8095
+spring:
+  main:
+    banner-mode: OFF
+  application:
+    name: CONFIGSERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Ankush-Paul-02/Microservice-Config.git
+          clone-on-start: true

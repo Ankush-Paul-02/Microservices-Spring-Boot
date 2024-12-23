@@ -1,10 +1,14 @@
 server:
   port: 8092
 spring:
+  main:
+    banner-mode: OFF
   application:
     name: HOTELSERVICE
+  config:
+    import: optional:configserver:http://localhost:8095
   datasource:
-    url: jdbc:postgresql://localhost:5432/microservices
+    url: jdbc:postgresql://localhost:5432/microservice
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
@@ -14,12 +18,3 @@ spring:
       ddl-auto: update
     properties:
       hibernate:dialect: org.hibernate.dialect.PostgreSQLDialect
-
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka

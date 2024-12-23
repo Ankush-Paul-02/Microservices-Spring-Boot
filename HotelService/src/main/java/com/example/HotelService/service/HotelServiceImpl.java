@@ -26,8 +26,13 @@ public class HotelServiceImpl implements HotelService {
                 .about(hotelDto.getAbout())
                 .location(hotelDto.getLocation())
                 .build();
-        hotelRepository.save(hotel);
-        return hotelDto;
+        hotel = hotelRepository.save(hotel);
+        return HotelDto.builder()
+                .id(hotel.getId())
+                .name(hotel.getName())
+                .about(hotel.getAbout())
+                .location(hotel.getLocation())
+                .build();
     }
 
     @Override

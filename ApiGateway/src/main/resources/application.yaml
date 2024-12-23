@@ -1,6 +1,12 @@
 server:
   port: 8094
 spring:
+  main:
+    banner-mode: OFF
+  application:
+    name: APIGATEWAY
+  config:
+    import: optional:configserver:http://localhost:8095
   cloud:
     gateway:
       routes:
@@ -16,8 +22,6 @@ spring:
           uri: lb://RATINGSERVICE
           predicates:
             - Path=/api/rating/**
-  application:
-    name: APIGATEWAY
 
 eureka:
   instance:

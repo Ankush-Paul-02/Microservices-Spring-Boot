@@ -2,17 +2,13 @@ server:
   port: 8093
 
 spring:
+  main:
+    banner-mode: OFF
   application:
     name: RATINGSERVICE
+  config:
+    import: optional:configserver:http://localhost:8095
   data:
     mongodb:
       uri: mongodb+srv://ankushpaul199:8EHD98gyNA3uMANw@cluster0.3mmez.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: microservice
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
