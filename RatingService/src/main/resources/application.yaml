@@ -10,5 +10,5 @@ spring:
     import: optional:configserver:http://localhost:8095
   data:
     mongodb:
-      uri: mongodb+srv://ankushpaul199:8EHD98gyNA3uMANw@cluster0.3mmez.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-      database: microservice
+      uri: mongodb+srv://ankushpaul198:OrDcas9xz3a5G4e4@cluster0.wez30.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: microservices

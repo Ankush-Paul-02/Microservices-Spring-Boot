@@ -65,7 +65,7 @@ management:
 resilience4j:
   circuitbreaker:
     instances:
-      ratingHotelCircuitBreaker:
+      userServiceCircuitBreaker:
         registerHealthIndicator: true
         eventConsumerBufferSize: 10
         failureRateThreshold: 50 # If 50% of the calls in the sliding window fail, the circuit breaker transitions to an open state.
@@ -77,6 +77,12 @@ resilience4j:
         slidingWindowType: COUNT_BASED
   retry:
     instances:
-      ratingHotelCircuitBreaker:
-        maxAttempts: 3
-        waitDuration: 10s
+      userServiceRetry:
+        maxAttempts: 2
+        waitDuration: 2s
+  ratelimiter:
+    instances:
+      userServiceRateLimiter:
+        timeoutDuration: 5s
+        limitForPeriod: 2
+        limitRefreshPeriod: 2s
