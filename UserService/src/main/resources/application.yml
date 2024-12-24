@@ -43,3 +43,40 @@ spring:
     show-sql: false
     database: MYSQL
     database-platform: org.hibernate.dialect.MySQLDialect
+
+# actuator config
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - circuitbreakers
+  health:
+    circuitbreakers:
+      enabled: true
+    defaults:
+      enabled: true
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+# resilience4j config
+resilience4j:
+  circuitbreaker:
+    instances:
+      ratingHotelCircuitBreaker:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50 # If 50% of the calls in the sliding window fail, the circuit breaker transitions to an open state.
+        minimumNumberOfCalls: 5 # The circuit breaker will only evaluate failure rates after receiving at least 5 calls.
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 2
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+  retry:
+    instances:
+      ratingHotelCircuitBreaker:
+        maxAttempts: 3
+        waitDuration: 10s
